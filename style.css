@@ -1,0 +1,22 @@
+html,
+body{
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+#container{
+    margin: auto;
+    min-height: 50%;
+    min-width: 50%;
+    border:10px solid black;
+}
