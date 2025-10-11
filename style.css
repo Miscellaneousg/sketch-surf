@@ -15,8 +15,14 @@ body{
 }
 
 #container{
+    display: flex;
     margin: auto;
     min-height: 50%;
     min-width: 50%;
     border:10px solid black;
+}
+
+.pixel{
+    flex:1;
+    border:2px solid black;
 }
