@@ -17,12 +17,19 @@ body{
 #container{
     display: flex;
     margin: auto;
-    min-height: 50%;
-    min-width: 50%;
-    border:10px solid black;
+    min-height: 80%;
+    min-width: 80dvh;
+    outline:1px solid black;
+    flex-direction: row;
 }
 
-.pixel{
+.pixel-grid{
     flex:1;
-    border:2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.cell{
+    flex: 1;
+    outline:1px solid black;
 }
