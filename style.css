@@ -31,5 +31,9 @@ body{
 
 .cell{
     flex: 1;
-    outline:1px solid black;
+     pointer-events: all;
+}
+
+.cell.active{
+    background-color: black;
 }
