@@ -35,9 +35,10 @@ input{
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     margin: auto;
-    min-height: 80dvh;
-    min-width: 80dvh;
+    flex-wrap: wrap;
+    height: 80dvh;
     flex-direction: row;
+    aspect-ratio: 1/1;
 }
 
 .pixel-grid{
@@ -54,4 +55,9 @@ input{
 
 .cell.active{
     background-color:black;
+}
+
+@media screen and (max-width: 600px){
+    #container{
+    height:80dvw;}
 }

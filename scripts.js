@@ -1,5 +1,5 @@
 const container = document.querySelector("#container");
-const gridSizeInput = document.querySelector("input.grid-size");
+const gridSizeInput = document.querySelector("input#gridRange");
 
 //initial grid call for 16x16
 gridMaker();
@@ -8,34 +8,27 @@ gridMaker();
 gridSizeInput.addEventListener("input", ()=>{
   container.replaceChildren(); 
   gridMaker();
-  document.querySelector("label.grid-size").textContent=`GRID: ${gridSizeInput.value}x${gridSizeInput.value}`
+  document.querySelector("label.gridRange").textContent=`GRID: ${gridSizeInput.value}x${gridSizeInput.value}`
 });
 
 //grid making fucntion
 function gridMaker(){
-  //buffer for temporary storage for column nodes
+  //fragment buffer for optimization
   const fragment = document.createDocumentFragment();
-  let cellCount = gridSizeInput.value;
+  const cellCount = parseInt(gridSizeInput.value);
 
-  //create column nodes
-  for(let i = 0; i<cellCount;i++){
-      const div = document.createElement("div");
-      div.classList.add("pixel-grid");
-      div.setAttribute("id",`column${i+1}`);
-      fragment.appendChild(div);
+  for (let i = 0; i < cellCount * cellCount; i++) {
+    const div = document.createElement("div");
+    div.classList.add("cell");
+    fragment.appendChild(div);
   }
 
   container.appendChild(fragment);
-
-  //fill each column
-  for(let i = 0;i<cellCount*cellCount;i++){
-      const div = document.createElement("div");
-      div.classList.add("cell");
-      const columnNumber = i%cellCount;
-      const column = document.querySelector(`#column${columnNumber+1}`);
-      column.appendChild(div);
-  }
-};
+  //segment each cell for grid
+  container.querySelectorAll(".cell").forEach(cell => {
+    cell.style.flex = `1 0 ${100 / cellCount}%`;
+  });
+}
 
 //prevent dragging of square divs
 container.addEventListener("dragstart", (e) => e.preventDefault());
