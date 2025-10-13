@@ -14,12 +14,16 @@ body{
     box-sizing: inherit;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 #container{
     display: flex;
     margin: auto;
     min-height: 80%;
     min-width: 80dvh;
-    outline:1px solid black;
     flex-direction: row;
 }
 
@@ -30,10 +34,11 @@ body{
 }
 
 .cell{
+    outline:1px solid pink;
     flex: 1;
-     pointer-events: all;
+    pointer-events: all;
 }
 
 .cell.active{
-    background-color: black;
+    background-color:black;
 }
